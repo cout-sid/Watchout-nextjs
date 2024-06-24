@@ -1,4 +1,3 @@
-import urllib
 import pickle
 import requests
 import pandas

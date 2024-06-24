@@ -1,13 +1,12 @@
 import pickle
 import pandas
-# import json
 import urllib
 from pymongo import InsertOne
 
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 
-client = MongoClient("mongodb+srv://sidnike19:" + urllib.parse.quote("recommend@24") +"@cone.lcz6nrx.mongodb.net/?retryWrites=true&w=majority&appName=Cone", server_api=ServerApi('1'))
+client = MongoClient("mongodb+srv://sidnike19:recom123@cone.lcz6nrx.mongodb.net/?retryWrites=true&w=majority&appName=Cone", server_api=ServerApi('1'))
 db = client.Movies
 collection = db.info
 requesting = []
