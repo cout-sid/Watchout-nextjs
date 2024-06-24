@@ -6,8 +6,9 @@ interface AllMovieResponse {
   }
 
 const useMovieList = () => {
-    
-    const { data, error } = useSWR<AllMovieResponse>(`http://localhost:8080/movie`, fetcher, {
+    // const { data, error } = useSWR<AllMovieResponse>(`http://localhost:8000/movie`, fetcher, {
+      const { data, error } = useSWR<AllMovieResponse>(`https://watchout-backend.onrender.com/movie`, fetcher, {
+
         revalidateIfStale: false,
         revalidateOnFocus: false,
         revalidateOnReconnect: false,
