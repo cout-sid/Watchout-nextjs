@@ -2,11 +2,13 @@ import pickle
 import pandas
 import urllib
 from pymongo import InsertOne
-
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
+import os
+from dotenv import load_dotenv, dotenv_values 
+load_dotenv() 
 
-client = MongoClient("mongodb+srv://sidnike19:recom123@cone.lcz6nrx.mongodb.net/?retryWrites=true&w=majority&appName=Cone", server_api=ServerApi('1'))
+client = MongoClient(os.getenv("DB_URL"), server_api=ServerApi('1'))
 db = client.Movies
 collection = db.info
 requesting = []
