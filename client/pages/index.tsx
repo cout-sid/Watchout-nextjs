@@ -9,6 +9,7 @@ import bcrypt from 'bcryptjs'
 
 
   const LoginPage = () => {
+    console.log(process.env.NODE_ENV);
   const router=useRouter();
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
@@ -61,6 +62,7 @@ import bcrypt from 'bcryptjs'
           <h2 className="flex justify-center text-3xl mb-8 items-center  font-semibold">
               {variant === 'login' ? 'Sign in' : 'Register'}
             </h2>
+            
             {/* <p>{hash}</p> */}
           <form onSubmit={variant==='login'? login: register} >
           
