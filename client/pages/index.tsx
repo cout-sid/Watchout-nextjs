@@ -6,6 +6,7 @@ import { FaGoogle } from "react-icons/fa";
 import { useEffect } from "react";
 import axios from "axios";
 import bcrypt from 'bcryptjs'
+import { FormEvent } from 'react';
 
 
   const LoginPage = () => {
@@ -16,7 +17,7 @@ import bcrypt from 'bcryptjs'
   const [password, setPassword] = useState('');
   const [variant, setVariant] = useState('login');
   
-  const login = useCallback(async (e) => {
+  const login = useCallback(async (e:FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     try {
       await signIn('credentials', {
@@ -38,7 +39,7 @@ import bcrypt from 'bcryptjs'
 
 
 
-      const register = useCallback(async (e) => {
+      const register = useCallback(async (e:FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
         try {
@@ -117,7 +118,7 @@ import bcrypt from 'bcryptjs'
 
             <div className="flex items-center justify-center">
               <button
-                onClick={variant === 'login' ? login : register}
+                // onClick={variant === 'login' ? login : register}
                 type="submit"
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               >
