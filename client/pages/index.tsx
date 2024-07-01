@@ -9,7 +9,7 @@ import bcrypt from 'bcryptjs'
 
 
   const LoginPage = () => {
-    console.log(process.env.NODE_ENV);
+    // console.log(process.env.NODE_ENV);
   const router=useRouter();
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');

@@ -15,16 +15,14 @@ const MoviePage:React.FC<MoviePageProps> = ({id,movie}) => {
     const router = useRouter();
     const { path,perror,isLoading} = usePoster(id);
 
-    if (isLoading) return <div>Loading...</div>;
-    if (perror) return <div>Error loading poster.</div>;
+    
 
     useEffect(() => {
         if (id === 0) {
             router.push('/');
           }
       }, [id, router]);
-
-      
+ 
     // const videoUrl = "https://www.youtube.com/watch?v=HKSZtp_OGHY";
     const videoUrl = "https://www.youtube.com/embed/HKSZtp_OGHY";
     
@@ -33,8 +31,10 @@ const MoviePage:React.FC<MoviePageProps> = ({id,movie}) => {
     const {data,error} =useMovie(id);
     const title = movie?.title || "default title";
     const {recoms,rerror} =useRecom(title)
-    if (error) return <div className='text-white'>Error loading movie page.</div>;
+    if (isLoading) return <div>Loading...</div>;
     if (!data) return <div className='text-white'> Loading...</div>;
+    if (perror) return <div>Error loading poster.</div>;
+    if (error) return <div className='text-white'>Error loading movie page.</div>;
     if (rerror) return <div className='text-white'>Error loading RecomIds.</div>;
 
     console.log("RECOMS:",recoms);
